@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import './demo/drawer_demo.dart';
+import './demo/bootom_navigation_bar_demo.dart';
+import './demo/listview_demo.dart';
 
 void main() => runApp(App());
 
 // StatefulWidget 有需要修改的
-// StatelessWidget  不需要修改
+// StatelessWidget  不需要修改 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,58 +58,14 @@ class Home extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Icon(Icons.local_activity, size: 128.0, color: Colors.black12),
+            ListViewDemo(),
+            // Icon(Icons.local_activity, size: 128.0, color: Colors.black12),
             Icon(Icons.local_florist, size: 128.0, color: Colors.black12),
             Icon(Icons.local_bar, size: 128.0, color: Colors.black12)
           ],
         ),
-        drawer: Drawer(
-            child: ListView(
-                padding: EdgeInsets.zero,
-                children: <Widget>[
-                    // DrawerHeader(
-                    //     child: Text("header".toUpperCase()),
-                    //     decoration: BoxDecoration(
-                    //         color: Colors.grey[100]
-                    //     ),
-                    // ),
-                    UserAccountsDrawerHeader(
-                        accountName: Text("halo",style: TextStyle(fontWeight: FontWeight.bold)),
-                        accountEmail: Text("halo.@163.com"),
-                        currentAccountPicture: CircleAvatar(
-                            backgroundImage: NetworkImage("https://img8.zol.com.cn/bbs/upload/23765/23764201.jpg"),
-                            // backgroundImage: AssetImage("../images/denglun.png"),
-                        ),
-                        decoration: BoxDecoration(
-                            color: Colors.red[400],
-                            image: DecorationImage(
-                                image: NetworkImage("https://resources.ninghao.org/images/childhood-in-a-picture.jpg"),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.red[400].withOpacity(0.4),
-                                    BlendMode.hardLight
-                                ),
-                            )
-                        ),
-                    ),
-                    ListTile(
-                        title: Text('Message',textAlign: TextAlign.right),
-                        trailing: Icon(Icons.message,color:Colors.black12,size:22.0),
-                        onTap: ()=>Navigator.pop(context),
-                    ),
-                    ListTile(
-                        title: Text('Favorite',textAlign: TextAlign.right),
-                        trailing: Icon(Icons.favorite,color:Colors.black12,size:22.0),
-                        onTap: ()=>Navigator.pop(context),
-                    ),
-                    ListTile(
-                        title: Text('Settings',textAlign: TextAlign.right),
-                        trailing: Icon(Icons.settings,color:Colors.black12,size:22.0),
-                        onTap: ()=>Navigator.pop(context),
-                    )
-                ],
-            ),
-        ),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationBarDemo(),
       ),
     );
   }
