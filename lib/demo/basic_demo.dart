@@ -3,7 +3,90 @@ import 'package:flutter/material.dart';
 class BasicDemo extends StatelessWidget {
     @override
   Widget build(BuildContext context) {
-    return TestDemo();
+    return ContainerDemo();
+  }
+}
+
+class ContainerDemo extends StatelessWidget{
+    @override
+  Widget build(BuildContext context) {
+    return Container(
+        // color: Colors.grey[300],
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image:NetworkImage("https://resources.ninghao.org/images/say-hello-to-barry.jpg"),
+                alignment: Alignment.topCenter,
+                // repeat: ImageRepeat.repeatY,
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.indigoAccent[400].withOpacity(0.5),
+                    BlendMode.hardLight
+                )
+            )
+        ),
+        child: Row(
+            mainAxisAlignment:MainAxisAlignment.center,
+            children: <Widget>[
+                Container(
+                    child: Icon(Icons.pool,size:32,color:Colors.white),
+                    // color: Color.fromRGBO(3, 54, 255, 1.0),
+                    padding: EdgeInsets.all(16),
+                    margin: EdgeInsets.all(8),
+                    width: 90,
+                    height: 90,
+                    decoration: BoxDecoration(
+                        // color: Colors.red,
+                        color: Color.fromRGBO(3, 54, 255, 0.7),
+                        // border: Border(
+                        //     top: BorderSide(
+                        //         color: Colors.red,
+                        //         width: 3.0,
+                        //         style: BorderStyle.solid
+                        //     ),
+                        //     bottom: BorderSide(
+                        //         color: Colors.red,
+                        //         width: 3.0,
+                        //         style: BorderStyle.solid
+                        //     )
+                        // )
+                        border:Border.all(
+                            color: Colors.red,
+                            width: 3.0,
+                            style: BorderStyle.solid
+                        ),
+                        // borderRadius: BorderRadius.only(
+                        //     topLeft: Radius.circular(64),
+                        //     bottomLeft: Radius.circular(64)
+                        // )
+                        // borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                            BoxShadow(
+                                offset: Offset(0, 16),
+                                color: Color.fromRGBO(16, 20, 188, 1),
+                                blurRadius: 25.0,
+                                spreadRadius: -9
+                            )
+                        ],
+                        shape: BoxShape.circle,
+                        // gradient: RadialGradient(//镜像渐变
+                        //     colors: [
+                        //         Color.fromRGBO(7, 102, 255, 1),
+                        //         Color.fromRGBO(3, 28, 128, 1)
+                        //     ]
+                        // )
+                        gradient: LinearGradient(//线性渐变
+                            colors: [
+                                Color.fromRGBO(7, 102, 255, 1),
+                                Color.fromRGBO(3, 28, 128, 1)
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter
+                        ),
+                    ),
+                )               
+            ],
+        ),
+    );
   }
 }
 
