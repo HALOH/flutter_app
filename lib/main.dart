@@ -4,6 +4,7 @@ import './demo/bootom_navigation_bar_demo.dart';
 import './demo/listview_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 void main() => runApp(App());
 
@@ -28,7 +29,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -54,7 +55,8 @@ class Home extends StatelessWidget {
             tabs: <Widget>[
               Tab(icon: Icon(Icons.local_activity)),
               Tab(icon: Icon(Icons.local_florist)),
-              Tab(icon: Icon(Icons.local_bar))
+              Tab(icon: Icon(Icons.local_bar)),
+              Tab(icon: Icon(Icons.view_quilt)),
             ],
           ),
         ),
@@ -64,7 +66,8 @@ class Home extends StatelessWidget {
             ListViewDemo(),
             // Icon(Icons.local_florist, size: 128.0, color: Colors.black12),
             BasicDemo(),
-            LayoutDemo()
+            LayoutDemo(),
+            ViewDemo()
           ],
         ),
         drawer: DrawerDemo(),
