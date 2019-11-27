@@ -6,22 +6,27 @@ import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
+import './demo/navigator_demo.dart';
 
 void main() => runApp(App());
 
 // StatefulWidget 有需要修改的
-// StatelessWidget  不需要修改 
+// StatelessWidget  不需要修改
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      //   home: NavigatorDemo(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/about': (context) => Page(title: "about")
+      },
       theme: ThemeData(
           primarySwatch: Colors.red,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
-          splashColor: Colors.white70
-        ),
+          splashColor: Colors.white70),
     );
   }
 }
@@ -34,11 +39,11 @@ class Home extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-        //   leading: IconButton(
-        //     icon: Icon(Icons.menu),
-        //     tooltip: "Navigration",
-        //     onPressed: () => debugPrint("pressed"),
-        //   ),
+          //   leading: IconButton(
+          //     icon: Icon(Icons.menu),
+          //     tooltip: "Navigration",
+          //     onPressed: () => debugPrint("pressed"),
+          //   ),
           title: Text('FLUTTER'),
           actions: <Widget>[
             IconButton(
